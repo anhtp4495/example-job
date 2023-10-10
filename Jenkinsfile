@@ -24,6 +24,6 @@ pipeline {
 
   }
   environment {
-    a = 'a1'
+    aa1 = 'a1'
   }
 }
