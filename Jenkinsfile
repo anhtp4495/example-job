@@ -6,6 +6,7 @@ pipeline {
         stage('Init') {
           steps {
             echo 'Hello World'
+            dir(path: 'DE/aa')
           }
         }
 
@@ -18,5 +19,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    a = 'a1'
   }
 }
