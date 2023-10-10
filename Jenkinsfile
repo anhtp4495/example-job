@@ -6,11 +6,8 @@ pipeline {
         stage('Init') {
           steps {
             echo 'Hello World'
-            dir(path: 'DE/aa') {
-              lock(resource: 'a') {
-                echo 'Lock'
-              }
-
+            lock(resource: 'a') {
+              echo 'Lock'
             }
 
           }
