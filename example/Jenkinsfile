@@ -23,8 +23,8 @@ pipeline {
             script {
               env.number = 1
               println "Number: ${env.number}"
+              helper = new UnitTestReportHepler()
             }
-            def helper = new UnitTestReportHepler()
             echo "Number: ${env.number}"
             script {
               def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
