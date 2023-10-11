@@ -9,7 +9,7 @@ pipeline {
           helper = lib.UnitTestReportHepler.new()
         }
 
-        node {
+        node(label: 'ssh') {
           script {
             wremote = ["host": "192.168.1.77", "allowAnyHosts": true]
           }
