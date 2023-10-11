@@ -5,6 +5,7 @@ pipeline {
       steps {
         script {
           name = "P.Anh 1"
+          @Library('helperlib') import helpers.UnitTestReportHepler
           helper = new UnitTestReportHepler()
         }
 
