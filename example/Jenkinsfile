@@ -17,7 +17,7 @@ pipeline {
       parallel {
         stage('Hello') {
           steps {
-            echo 'Hello ${name}'
+            echo "Hello ${name}"
           }
         }
 
@@ -27,7 +27,7 @@ pipeline {
               name = "atr"
             }
 
-            echo 'Hello ${name}'
+            echo "Hello ${name}"
             script {
               def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
               withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
