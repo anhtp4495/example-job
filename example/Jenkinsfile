@@ -5,7 +5,7 @@ pipeline {
       steps {
         script {
           name = "P.Anh 1"
-          def lib = library(('helperlib').helpers
+          def lib = library('helperlib').helpers
           helper = lib.UnitTestReportHepler.new()
         }
 
