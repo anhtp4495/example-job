@@ -12,7 +12,7 @@ pipeline {
       }
     }
 
-    stage('Hello') {
+    stage('Works') {
       parallel {
         stage('Hello') {
           steps {
@@ -20,7 +20,7 @@ pipeline {
           }
         }
 
-        stage('Call a lib') {
+        stage('Call helper lib') {
           steps {
             script {
               name = "atr"
