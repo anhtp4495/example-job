@@ -15,7 +15,7 @@ pipeline {
           }
 
           sshCommand(remote: wremote, command: 'echo 123')
-          sshCommand 'sad'
+          sshCommand remote: ["host": "192.168.1.77", "allowAnyHosts": true], command: "echo 1"
         }
 
       }
