@@ -19,7 +19,14 @@ pipeline {
           }
           steps {
             echo 'Do something'
-            bat(returnStatus: true, script: 'echo 1', returnStdout: true)
+            def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
+            withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+              remote.user = userName
+              remote.name = userName
+              remote.identityFile = identity
+
+              sshCommand remote: remote, command: "echo 1"
+            }
           }
         }
 
