@@ -3,10 +3,10 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
+        library 'helperlib'
         script {
           name = "P.Anh 1"
-          def lib = library('helperlib').helpers
-          helper = lib.UnitTestReportHepler.new()
+          helper = new helpers.UnitTestReportHepler()
         }
 
       }
