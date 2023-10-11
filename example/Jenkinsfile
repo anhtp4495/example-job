@@ -1,3 +1,7 @@
+def writeLog(text) {
+  println text
+}
+
 pipeline {
   agent any
   stages {
@@ -18,6 +22,7 @@ pipeline {
             remote = '[:}'
           }
           steps {
+            writeLog('Hello World')
             script {
               def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
               withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
