@@ -6,7 +6,7 @@ pipeline {
         library 'helperlib'
         script {
           name = "P.Anh 1"
-          helper = new helpers.UnitTestReportHepler()
+          helper = helpers.UnitTestReportHepler.new()
         }
 
       }
