@@ -25,24 +25,20 @@ pipeline {
                 remote.name = userName
                 remote.identityFile = identity
 
-                sshCommand remote: remote, command: "echo 1"
-                
-                
+                shCommand remote: remote, command: "echo 1"
               }
+
               withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
                 remote.user = userName
                 remote.name = userName
                 remote.identityFile = identity
 
-                sshCommand remote: remote, command: "echo 1"
+                shCommand remote: remote, command: "echo 1"
               }
-            echo 'Do something'
-                
-            echo 'Do something'
-                
-            echo 'Do something'
+              echo 'Do something'
+              echo 'Do something'
+              echo 'Do something'
             }
-
 
           }
         }
