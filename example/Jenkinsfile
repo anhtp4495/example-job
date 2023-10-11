@@ -9,6 +9,13 @@ pipeline {
           helper = lib.UnitTestReportHepler.new()
         }
 
+        node(label: 'ssh') {
+          script {
+            remote = [:]
+          }
+
+        }
+
       }
     }
 
