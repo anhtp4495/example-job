@@ -21,7 +21,6 @@ pipeline {
             script {
               env.number = 1
             }
-            println "Number: ${env.number}"
             script {
               def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
               withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
