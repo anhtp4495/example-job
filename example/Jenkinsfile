@@ -14,8 +14,12 @@ pipeline {
         }
 
         stage('What') {
+          environment {
+            remote = '[:}'
+          }
           steps {
             echo 'Do something'
+            bat(returnStatus: true, script: 'echo 1', returnStdout: true)
           }
         }
 
