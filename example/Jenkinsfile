@@ -15,9 +15,10 @@ pipeline {
 
         stage('What') {
           environment {
-            remote = '[:}'
+            var1 = [:]
           }
           steps {
+            var1.number = 0
             script {
               def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
               withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
