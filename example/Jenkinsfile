@@ -3,10 +3,10 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        library 'helperlib'
         script {
           name = "P.Anh 1"
-          helper = helpers.UnitTestReportHepler.new()
+          def lib = library('helperlibdev').helpers
+          helper = lib.UnitTestReportHepler.new()
         }
 
       }
@@ -47,6 +47,8 @@ pipeline {
               echo 'Do something'
               echo 'Do something'
               echo 'Do something'
+
+              println "ParseInt: ${helper.tryParseInt('123')}"
             }
 
           }
