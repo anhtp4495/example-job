@@ -10,7 +10,9 @@ pipeline {
         }
 
         node {
-          def wremote = ["host": "192.168.1.77", "allowAnyHosts": true]
+          script {
+            wremote = ["host": "192.168.1.77", "allowAnyHosts": true]
+          }
           sshCommand remote: wremote, command: "echo 1"
 
         }
