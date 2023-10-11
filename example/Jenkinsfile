@@ -1,31 +1,31 @@
-@Library('helperlibdev') import helpers.UnitTestReportHepler
-
 pipeline {
   agent any
   stages {
-    stage('Init') {
-      parallel {
-        stage('Init') {
-          steps {
-            echo 'Hello World'
-            lock(resource: 'a') {
-              echo 'Lock'
-            }
+    stage('Initialize') {
+      steps {
+        script {
+          name = "P.Anh"
+          helper = new UnitTestReportHepler()
+        }
 
+      }
+    }
+
+    stage('Hello') {
+      parallel {
+        stage('Hello') {
+          steps {
+            echo 'Hello ${name}'
           }
         }
 
-        stage('What') {
-          environment {
-            number = 0
-          }
+        stage('Call a lib') {
           steps {
             script {
-              env.number = 1
-              println "Number: ${env.number}"
-              helper = new UnitTestReportHepler()
+              name = "atr"
             }
-            echo "Number: ${env.number}"
+
+            echo 'Hello ${name}'
             script {
               def remote = ["host": "192.168.1.77", "allowAnyHosts": true]
               withCredentials([sshUserPrivateKey(credentialsId: 'build-server-window', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
